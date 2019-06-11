@@ -1,12 +1,24 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.demo.dao.ReserveMapper" >
-  <resultMap id="BaseResultMap" type="com.demo.entity.Reserve" >
-    <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="username" property="username" jdbcType="VARCHAR" />
-    <result column="food" property="food" jdbcType="VARCHAR" />
-    <result column="sumprice" property="sumprice" jdbcType="DECIMAL" />
-    <result column="address" property="address" jdbcType="VARCHAR" />
-    <result column="YN" property="yn" jdbcType="VARCHAR" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.dao.ReserveMapper">
+  <resultMap id="BaseResultMap" type="com.demo.entity.Reserve">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="food" jdbcType="VARCHAR" property="food" />
+    <result column="sumprice" jdbcType="DECIMAL" property="sumprice" />
+    <result column="times" jdbcType="VARCHAR" property="times" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="YN" jdbcType="VARCHAR" property="yn" />
   </resultMap>
+  <insert id="insert" parameterType="com.demo.entity.Reserve">
+    insert into reserve(username,food,sumprice,address,YN,times) values (#{username},#{food},#{sumprice},#{address},#{yn},#{times})
+  </insert>
+
+  <select id="findorder" parameterType="com.demo.entity.Reserve" resultType="com.demo.entity.Reserve">
+    select * from reserve where username=#{username}
+  </select>
+
+  <update id="update" parameterType="com.demo.entity.Reserve">
+    update reserve set YN='已签收' where id=#{id}
+  </update>
 </mapper>

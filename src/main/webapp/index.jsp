@@ -2,7 +2,7 @@
 <html>
 <head>
     <!-- Page title -->
-    <title>imooc - Login</title>
+    <title>用户登录</title>
     <!-- End of Page title -->
     <!-- Libraries -->
     <script  src="./js/jquery-3.2.1.js"></script>
@@ -32,7 +32,7 @@
     function checkLogin() {
         var uname = $("#name").val();
         var pwd = $("#pwd").val();
-        $.cookie("uname","root", { expires: 7, path: '/', domain: 'jquery.com', secure: true});
+       // $.cookie("name",uname, { expires: 7, path: '/', domain: 'jquery.com', secure: true});
         var user = {
             username: uname,
             password: pwd
@@ -44,12 +44,10 @@
             data: JSON.stringify(user),
             dataType: "json",
             success: function (data) {
-                console.log(data);
+                // console.log(data);
                 switch (data) {
                     case 0:
-                        //alert("success!");
-                        //setCookie("name",uname);
-                        // console.log(getCookie("name"));
+                        setCookie("name",uname);
                         window.location="main.jsp";
                         break;
                     case 1:
@@ -85,6 +83,6 @@
         }
     }
     function toregister() {
-        window.location.href='http://localhost:8080/change';
+        window.location="register.jsp";
     }
 </script>

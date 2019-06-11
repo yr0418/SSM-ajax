@@ -43,7 +43,8 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "/getNickName",method =RequestMethod.POST)
+    //使前台正确显示中文字符
+    @RequestMapping(value = "/getNickName",produces="text/html;charset=UTF-8;",method =RequestMethod.POST)
     @ResponseBody
     public String getNickname(@RequestBody User user){
         if (user.getUsername()==null){
@@ -68,10 +69,5 @@ public class UserController {
         }
         userService.insertUser(user);
         return 1;
-    }
-    @RequestMapping(value = "/change",method = RequestMethod.GET)
-    @ResponseBody
-    public String change(){
-        return "main";
     }
 }

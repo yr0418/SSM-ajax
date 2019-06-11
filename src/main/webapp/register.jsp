@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>register</title>
+    <title>用户注册</title>
     <script  src="./js/jquery-3.2.1.js"></script>
     <script src="./js/jquery.cookie.js"></script>
 </head>

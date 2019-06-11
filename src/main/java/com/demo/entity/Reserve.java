@@ -1,6 +1,7 @@
 package com.demo.entity;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 public class Reserve {
     private Long id;
@@ -9,7 +10,9 @@ public class Reserve {
 
     private String food;
 
-    private BigDecimal sumprice;
+    private double sumprice;
+
+    private String times;
 
     private String address;
 
@@ -39,12 +42,20 @@ public class Reserve {
         this.food = food == null ? null : food.trim();
     }
 
-    public BigDecimal getSumprice() {
+    public double getSumprice() {
         return sumprice;
     }
 
-    public void setSumprice(BigDecimal sumprice) {
+    public void setSumprice(double sumprice) {
         this.sumprice = sumprice;
+    }
+
+    public String getTime() {
+        return times;
+    }
+
+    public void setTime(String times) {
+        this.times = times;
     }
 
     public String getAddress() {
