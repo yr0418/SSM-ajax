@@ -21,4 +21,12 @@
   <update id="update" parameterType="com.demo.entity.Reserve">
     update reserve set YN='已签收' where id=#{id}
   </update>
+
+  <delete id="delete" parameterType="java.lang.Integer">
+    delete from reserve where id=#{id}
+  </delete>
+
+  <select id="findall" resultType="com.demo.entity.Reserve">
+    select * from reserve
+  </select>
 </mapper>

@@ -22,4 +22,12 @@ public class ReserveService {
     public void update(Reserve reserve){
         reserveMapper.update(reserve);
     }
+
+    public void delete(int id){
+        reserveMapper.delete(id);
+    }
+
+    public List<Reserve> findall(){
+        return reserveMapper.findall();
+    }
 }

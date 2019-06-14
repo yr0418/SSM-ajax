@@ -10,4 +10,8 @@ public interface ReserveMapper {
     List<Reserve> findorder(Reserve reserve);
 
     void update(Reserve reserve);
+
+    void delete(int id);
+
+    List<Reserve> findall();
 }

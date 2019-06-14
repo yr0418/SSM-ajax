@@ -38,6 +38,16 @@
         <input type="button" onclick="update()" value="确认签收"/>
     </p>
 </div>
+<div>
+    <h3>删除订单</h3>
+    <p>
+        <label>请输入订单号：</label>
+        <input type="text" id="deleteid" />
+    </p>
+    <p>
+        <input type="button" onclick="remove()" value="确认删除"/>
+    </p>
+</div>
 </body>
 <script language="JavaScript">
     function getorder() {
@@ -100,6 +110,25 @@
                 console.log("错误是:" + e.responseText);
             }
         });
+    }
+    function remove(){
+        var id=$("#deleteid").val();
+        $.ajax({
+            type:"post",
+            url:"reserve/delete.action",
+            contentType: "application/json",
+            data: JSON.stringify(id),
+            dataType: "json",
+            success:function (data) {
+                switch (data) {
+                    case 1:alert("删除成功");window.location="showorder.jsp";break;
+                    default:alert("删除失败");break;
+                }
+            },
+            error:function (e) {
+                console.log("错误是："+e.responseText);
+            }
+        })
     }
     window.onload=getorder();
 </script>

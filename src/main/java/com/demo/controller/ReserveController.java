@@ -63,4 +63,19 @@ public class ReserveController {
         }
         return 0;
     }
+    @RequestMapping(value = "/delete",method = RequestMethod.POST)
+    @ResponseBody
+    public int delete(@RequestBody int id){
+        List<Reserve> list=reserveService.findall();
+        for (int i = 0; i <list.size() ; i++) {
+            if (id==list.get(i).getId()){
+
+                reserveService.delete(id);
+                return 1;
+            }
+        }
+        return 0;
+    }
+
+
 }
