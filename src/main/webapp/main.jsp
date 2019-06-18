@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 孤狼
@@ -91,7 +92,7 @@
                 var str = "";//定义用于拼接的字符串
                 for (var i = 0; i < data.length; i++) {
                     //拼接表格的行和列
-                    str = "<tr align='center'><td>" + data[i].id + "</td><td>" + data[i].name + "</td><td>"+data[i].price+"</td></tr>";
+                    str = "<tr align='center'><td>" + data[i].id + "</td><td>" + data[i].name + "</td><td>"+data[i].price+"</td><td><input type=\"button\" value=\"UPDATE\" onclick=\"update(this)\"/></td></tr>";
                     //追加到table中
                     $("#tab").append(str);
                 }
@@ -100,6 +101,11 @@
                 console.log("错误是:" + e.responseText);
             }
         });
+    }
+    function update(btn){
+        var tr=btn.parentNode.parentNode
+        var tds=tr.getElementsByTagName('td');
+        alert(tds[0].innerHTML)
     }
     function getprice(){
         var foods=$("#food").val();
