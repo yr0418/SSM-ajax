@@ -32,7 +32,6 @@
     function checkLogin() {
         var uname = $("#name").val();
         var pwd = $("#pwd").val();
-       // $.cookie("name",uname, { expires: 7, path: '/', domain: 'jquery.com', secure: true});
         var user = {
             username: uname,
             password: pwd

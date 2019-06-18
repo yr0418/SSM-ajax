@@ -52,8 +52,7 @@
 <script language="JavaScript">
     var menu;
     function getnickname() {
-        var name=getCookie("name")
-      //  var name=$.cookie("name")
+        var name=getCookie("name");
         var user = {
             username: name,
         };
